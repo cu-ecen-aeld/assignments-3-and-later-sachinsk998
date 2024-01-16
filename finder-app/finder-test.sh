@@ -10,7 +10,8 @@ NUMFILES=10
 WRITESTR=AELD_IS_FUN
 OUTPUT_FILE="/tmp/assignment4-result.txt"
 WRITEDIR=/tmp/aeld-data
-username=$(cat etc/finder-app/conf/username.txt)
+
+username=$(cat conf/username.txt)
 
 if [ $# -lt 3 ]
 then
@@ -34,7 +35,7 @@ echo "Writing ${NUMFILES} files containing string ${WRITESTR} to ${WRITEDIR}"
 rm -rf "${WRITEDIR}"
 
 # create $WRITEDIR if not assignment1
-assignment=`cat /etc/finder-app/conf/assignment.txt`
+assignment=$(cat conf/assignment.txt)
 
 if [ $assignment != 'assignment1' ]
 then
