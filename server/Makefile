@@ -1,12 +1,12 @@
-CC=gcc
-#CFLAGS+=-Wall -Werror
+CC = gcc
+CFLAGS = -Wall -Wextra 
+LDFLAGS = -lpthread
 
-TARGET=aesdsocket
-TARGET_OBJ=$(TARGET).o
-TARGET_SRC=$(TARGET).c
+all: aesdsocket
 
-all:
-	$(CC) $(CFLAGS) -c -o $(TARGET_OBJ) $(TARGET_SRC)
-	$(CC) $(CFLAGS) $(INCLUDES) $(LDFLAGS) $(TARGET_OBJ) -o $(TARGET) 
+aesdsocket: aesdsocket.c
+	$(CC) $(CFLAGS) aesdsocket.c -o aesdsocket $(LDFLAGS)
+
 clean:
-	rm -f *.o $(TARGET) *.elf *.map
+	rm -f aesdsocket
+
